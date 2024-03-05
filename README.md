@@ -1,20 +1,15 @@
 # Hyper76
 
-incelflex
-
-![alt text](./Source/background.jpg)
-
-bugs:
+issues:
 - no level meter
-- ! bass cutoff
-- reverb damping
-
-todo:
-- knob positioning
+- reverb volume difference
+- slider thumb size
+  ___
+bg todo:
 - remove button3
 - update texts
-  ___
-- slider thumb size
 
 code quality:
 - Knob lookandfeel color parameter
+
+![alt text](./Source/background.jpg)

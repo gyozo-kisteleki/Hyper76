@@ -61,6 +61,9 @@ private:
     int delayBufferPos = 0;
     juce::AudioBuffer<float> delayBuffer;
     
+    juce::AudioParameterInt* myBassptr;
+    juce::AudioParameterFloat* myDampptr;
+
     juce::dsp::StateVariableTPTFilter<float> bassFilter;
     juce::dsp::Chorus<float> myChorus;
     juce::dsp::Reverb myReverb;

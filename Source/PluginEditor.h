@@ -69,18 +69,17 @@ private:
                      knob7Attachment,
                      knob8Attachment;
 
-    KnobLookAndFeel_1 KnobLaf_1;
-    KnobLookAndFeel_2 KnobLaf_2;
-
-    ButtonLookAndFeel ButtonLaf_1;
-    SliderLookAndFeel SliderLaf;
-
-
     juce::AudioProcessorValueTreeState::ButtonAttachment
         button1Attachment,
         button2Attachment,
         button3Attachment,
         button4Attachment;
+
+    KnobLookAndFeel_1 KnobLaf_1;
+    KnobLookAndFeel_2 KnobLaf_2;
+
+    ButtonLookAndFeel ButtonLaf_1;
+    SliderLookAndFeel SliderLaf;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Hyper76AudioProcessorEditor)
 };

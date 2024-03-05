@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="I1zqj7" name="Hyper76" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="sbg8pp" name="Hyper76">
+    <GROUP id="{D613765F-603B-1F35-7F71-53E0ABD212E7}" name="Source">
+      <FILE id="UDhF3o" name="slider.JPG" compile="0" resource="1" file="Source/slider.JPG"/>
+      <FILE id="QP759x" name="LookAndFeel.cpp" compile="1" resource="0" file="Source/LookAndFeel.cpp"/>
+      <FILE id="Wg5zrQ" name="LookAndFeel.h" compile="0" resource="0" file="Source/LookAndFeel.h"/>
+      <FILE id="whPzkU" name="button.JPG" compile="0" resource="1" file="Source/button.JPG"/>
+      <FILE id="P03K0Y" name="config.h" compile="0" resource="0" file="Source/config.h"/>
+      <FILE id="kZUmvv" name="background.jpg" compile="0" resource="1" file="Source/background.jpg"/>
+      <FILE id="wtNZTk" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="KQAH0I" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="u0jrJm" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="ls5uIo" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Hyper76"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Hyper76"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../dev_plugins/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../dev_plugins/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>

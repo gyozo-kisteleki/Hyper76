@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="I1zqj7" name="Hyper76" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginFormats="buildAU,buildStandalone,buildVST3"
+              bundleIdentifier="GyK" pluginManufacturer="GyK">
   <MAINGROUP id="sbg8pp" name="Hyper76">
     <GROUP id="{D613765F-603B-1F35-7F71-53E0ABD212E7}" name="Source">
-      <FILE id="UDhF3o" name="slider.JPG" compile="0" resource="1" file="Source/slider.JPG"/>
+      <FILE id="w3av2C" name="background.jpg" compile="0" resource="1" file="Source/background.jpg"/>
       <FILE id="QP759x" name="LookAndFeel.cpp" compile="1" resource="0" file="Source/LookAndFeel.cpp"/>
       <FILE id="Wg5zrQ" name="LookAndFeel.h" compile="0" resource="0" file="Source/LookAndFeel.h"/>
-      <FILE id="whPzkU" name="button.JPG" compile="0" resource="1" file="Source/button.JPG"/>
       <FILE id="P03K0Y" name="config.h" compile="0" resource="0" file="Source/config.h"/>
-      <FILE id="kZUmvv" name="background.jpg" compile="0" resource="1" file="Source/background.jpg"/>
       <FILE id="wtNZTk" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="KQAH0I" name="PluginProcessor.h" compile="0" resource="0"

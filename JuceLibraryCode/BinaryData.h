@@ -8,17 +8,11 @@
 
 namespace BinaryData
 {
-    extern const char*   slider_JPG;
-    const int            slider_JPGSize = 2973;
-
-    extern const char*   button_JPG;
-    const int            button_JPGSize = 2740;
-
     extern const char*   background_jpg;
-    const int            background_jpgSize = 115848;
+    const int            background_jpgSize = 93652;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 3;
+    const int namedResourceListSize = 1;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

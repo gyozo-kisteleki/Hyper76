@@ -213,7 +213,7 @@ void Hyper76AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
     bool  bypass   = state.getParameter ("bypass")   ->getValue();
 
     float mix = revdly;
-    reverbParams.wetLevel = 0.4 - 0.4 * revdly;
+    reverbParams.wetLevel = 0.2 - 0.2 * revdly;
 
     //reverbParams.dryLevel = state.getParameter("config4")->getValue();
     reverbParams.roomSize = state.getParameter("size") ->getValue();

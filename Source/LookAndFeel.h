@@ -109,6 +109,7 @@ public:
 //private:
 //    /* data */
 //    std::unique_ptr<juce::Drawable> thumbImage;
+// 
 //
 //public:
 //    SliderLookAndFeel()

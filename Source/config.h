@@ -21,14 +21,14 @@
 
 #define UPPER_ROW_Y 100
 #define LOWER_ROW_Y 235
-#define LOLOWER_ROW_Y 252
+#define LOLOWER_ROW_Y 245
 
-#define COLUMN_1 175
+#define COLUMN_1 176
 #define COLUMN_2 315
-#define COLUMN_3 442
-#define COLUMN_4 809
+#define COLUMN_3 447
+#define COLUMN_4 813
 #define COLUMN_5 936
-#define COLUMN_6 1078
+#define COLUMN_6 1074
 
 #define SLIDER_X 480
 #define SLIDER_Y 130

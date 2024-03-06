@@ -19,7 +19,7 @@ Hyper76AudioProcessorEditor::Hyper76AudioProcessorEditor(Hyper76AudioProcessor& 
     knob5Attachment(p.state, "revdly", knob5),
     knob6Attachment(p.state, "damp",   knob6),
     knob7Attachment(p.state, "size",   knob7),
-    knob8Attachment(p.state, "width", knob8),
+    knob8Attachment(p.state, "width",  knob8),
 
     sliderAttachment(p.state, "feedback", slider),
 
@@ -41,8 +41,8 @@ Hyper76AudioProcessorEditor::Hyper76AudioProcessorEditor(Hyper76AudioProcessor& 
         &knob6, 
     })
     {
-        knob->setTextBoxStyle (juce::Slider::NoTextBox, true, 0, 0);
         knob->setSliderStyle(juce::Slider::SliderStyle::Rotary);
+        knob->setTextBoxStyle (juce::Slider::NoTextBox, true, 0, 0);
         knob->setLookAndFeel(&KnobLaf_1);
         addAndMakeVisible (knob);
     }
@@ -54,16 +54,16 @@ Hyper76AudioProcessorEditor::Hyper76AudioProcessorEditor(Hyper76AudioProcessor& 
         &knob8, 
     })
     {
-        knob->setTextBoxStyle (juce::Slider::NoTextBox, true, 0, 0);
         knob->setSliderStyle(juce::Slider::SliderStyle::Rotary);
+        knob->setTextBoxStyle (juce::Slider::NoTextBox, true, 0, 0);
         knob->setLookAndFeel(&KnobLaf_2);
         addAndMakeVisible (knob);
     }
 
-    for (auto* button : { &button1, &button2, &button3, &button4})
+    for (auto* button : { &button1, &button2, /*&button3, */&button4})
     {
-        addAndMakeVisible (button);
         button->setLookAndFeel(&ButtonLaf_1);
+        addAndMakeVisible (button);
     }
 
     // Make sure that before the constructor has finished, you've set the
@@ -91,11 +91,10 @@ void Hyper76AudioProcessorEditor::resized()
 
     knob1   .setBounds(COLUMN_1, UPPER_ROW_Y,    KNOB_DIAMETER, KNOB_DIAMETER);
     knob2   .setBounds(COLUMN_2, UPPER_ROW_Y,    KNOB_DIAMETER, KNOB_DIAMETER);
-    //knob2   .setSkewFactor(0.5f);
     knob3   .setBounds(COLUMN_1, LOWER_ROW_Y,    KNOB_DIAMETER, KNOB_DIAMETER);
     knob4   .setBounds(COLUMN_2, LOWER_ROW_Y,    KNOB_DIAMETER, KNOB_DIAMETER);
     knob5   .setBounds(COLUMN_3, LOLOWER_ROW_Y,  KNOB_DIAMETER, KNOB_DIAMETER);
-    knob6   .setBounds(COLUMN_4, LOLOWER_ROW_Y,  KNOB_DIAMETER, KNOB_DIAMETER);
+    knob6   .setBounds(COLUMN_4-5, LOLOWER_ROW_Y+5,  KNOB_DIAMETER-10, KNOB_DIAMETER-10);
     knob7   .setBounds(COLUMN_5, LOWER_ROW_Y,    KNOB_DIAMETER, KNOB_DIAMETER);
     knob8   .setBounds(COLUMN_6, LOWER_ROW_Y,    KNOB_DIAMETER, KNOB_DIAMETER);
 
@@ -103,7 +102,7 @@ void Hyper76AudioProcessorEditor::resized()
     
     button1 .setBounds(BUTTON_1X,  BUTTON_1Y,BUTTON_W,  BUTTON_H);
     button2 .setBounds(BUTTON_1X+1*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
-    button3 .setBounds(BUTTON_1X+2*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
+    //button3 .setBounds(BUTTON_1X+2*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
     button4 .setBounds(BUTTON_1X+3*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
 
 }

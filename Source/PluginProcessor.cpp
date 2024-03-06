@@ -23,7 +23,7 @@ Hyper76AudioProcessor::Hyper76AudioProcessor()
 #endif
     , state (*this, nullptr, "STATE", {
         std::make_unique<juce::AudioParameterFloat> ("gain",     "Gain",           0.0f, 1.0f, 1.0f),
-        std::make_unique<juce::AudioParameterFloat> ("bass",     "Bass",           50.0f,1000.0f, 500.0f),
+        std::make_unique<juce::AudioParameterInt>   ("bass",     "Bass",           50,   1000, 500),
         std::make_unique<juce::AudioParameterFloat> ("depth",    "Depth",          0.0f, 1.0f, 0.5f),
         std::make_unique<juce::AudioParameterFloat> ("rate",     "Rate",           0.0f, 2.0f, 0.5f),
         std::make_unique<juce::AudioParameterFloat> ("revdly",   "Rev/Dly",        0.0f, 1.0f, 0.5f),
@@ -40,6 +40,8 @@ Hyper76AudioProcessor::Hyper76AudioProcessor()
         std::make_unique<juce::AudioParameterBool>  ("bypass",   "Bypass",  true)
     })
 {
+    myBassptr = dynamic_cast<juce::AudioParameterInt*>  (state.getParameter("bass"));
+    myDampptr = dynamic_cast<juce::AudioParameterFloat*>(state.getParameter("damp"));
 }
 
 Hyper76AudioProcessor::~Hyper76AudioProcessor()
@@ -128,16 +130,9 @@ void Hyper76AudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
     myChorus.reset();
 
     reverbParams.dryLevel = 0.1;
+    myReverb.setParameters(reverbParams);
     myReverb.prepare(mySpec);
     myReverb.reset();
-
-    //trebleFilter.setType(juce::dsp::StateVariableTPTFilterType::bandpass);
-    //trebleFilter.setResonance(3);
-    //trebleFilter.setCutoffFrequency(6000);
-    //trebleFilter.coefficients = juce::dsp::IIR::Coefficients<float>::makeHighShelf(sampleRate, HI_SHELF_CUTOFF, HI_SHELF_Q, 0);
-    //trebleFilter.state = juce::dsp::IIR::Coefficients<float>::makeHighShelf(sampleRate, HI_SHELF_CUTOFF, HI_SHELF_Q, 0);
-    //trebleFilter.prepare(mySpec);
-    //trebleFilter.reset();
 
     bassFilter.setType(juce::dsp::StateVariableTPTFilterType::highpass);
     bassFilter.setResonance(0.707);
@@ -193,13 +188,6 @@ void Hyper76AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    // TO MONO
-    //if (totalNumInputChannels == 2)
-    //{
-    //    buffer.addFrom(0, 0, buffer, 1, 0, buffer.getNumSamples());
-    //    buffer.copyFrom(1, 0, buffer, 0, 0, buffer.getNumSamples());
-    //    buffer.applyGain(0.5f);
-    //}
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
     // Make sure to reset the state if your inner loop is processing
@@ -209,10 +197,13 @@ void Hyper76AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
 
     float gain      = state.getParameter ("gain")    ->getValue();
     float bass      = state.getParameter ("bass")    ->getValue();
+
     float depth     = state.getParameter ("depth")   ->getValue();
     float rate      = state.getParameter ("rate")    ->getValue();
+
     float revdly    = state.getParameter ("revdly")  ->getValue();
-    reverbParams.damping = state.getParameter("damp")->getValue();
+    
+    reverbParams.damping = 1-(myDampptr->get());
     
     float feedback = state.getParameter ("feedback") ->getValue();
     
@@ -222,28 +213,15 @@ void Hyper76AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
     bool  bypass   = state.getParameter ("bypass")   ->getValue();
 
     float mix = revdly;
-    reverbParams.wetLevel = 0.6 - 0.6 * revdly;
+    reverbParams.wetLevel = 0.4 - 0.4 * revdly;
 
     //reverbParams.dryLevel = state.getParameter("config4")->getValue();
     reverbParams.roomSize = state.getParameter("size") ->getValue();
     reverbParams.width =    state.getParameter("width")->getValue();
 
-    //float basscutoff = 1500 - 1450 * bass; // [Hz]
-    //float treblecutoff = 5000 + 7000 * treble; // [Hz]
-
     auto myBlock = juce::dsp::AudioBlock<float>(buffer);
     auto myContext = juce::dsp::ProcessContextReplacing<float>(myBlock);
 
-    //trebleFilter.coefficients = juce::dsp::IIR::Coefficients<float>::makeHighShelf(
-    //trebleFilter.state = juce::dsp::IIR::Coefficients<float>::makeHighShelf(
-    //    getSampleRate(),
-    //    state.getParameter("config1")->getValue(),
-    //    state.getParameter("config2")->getValue(),
-    //    treble
-    //    );
-
-    //if (doubler)
-    //    feedback *= 2;
 
     if (!bypass)
     {
@@ -289,14 +267,12 @@ void Hyper76AudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
         // REVERB
         myReverb.setParameters(reverbParams);
         myReverb.process(myContext);
-        bassFilter.setCutoffFrequency(bass);
-        bassFilter.process(myContext);
     
         // FILTERS
         if (filter)
         {
-            //trebleFilter.setCutoffFrequency(treblecutoff);
-            //trebleFilter.process(myContext);
+            bassFilter.setCutoffFrequency(1050-(myBassptr->get()));
+            bassFilter.process(myContext);
         }
     }
 

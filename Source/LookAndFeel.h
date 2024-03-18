@@ -104,40 +104,6 @@ public:
 };
 
 
-//class SliderLookAndFeel : public juce::LookAndFeel_V4
-//{
-//private:
-//    /* data */
-//    std::unique_ptr<juce::Drawable> thumbImage;
-// 
-//
-//public:
-//    SliderLookAndFeel()
-//    {
-//        thumbImage = juce::Drawable::createFromImageData(BinaryData::slider_JPG, BinaryData::slider_JPGSize);
-//    };
-//    ~SliderLookAndFeel() {};
-//
-//    void drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,
-//        float sliderPos, float minSliderPos, float maxSliderPos,
-//        const juce::Slider::SliderStyle style, juce::Slider& slider) override
-//    {
-//        auto trackWidth = 4.0f;
-//        auto track = juce::Rectangle<float>((width / 2) - trackWidth / 2, y, trackWidth, height);
-//        //g.setColour(juce::Colours::black.withAlpha(0.7f));
-//        g.fillRect(track.toFloat());
-//
-//        auto thumbWidth = 31;
-//        auto thumbHeight = 62;
-//        auto thumbX = x + (width - thumbWidth) * 0.5f;
-//        auto thumbY = sliderPos;
-//
-//        auto thumb = juce::Rectangle<float>(thumbX, thumbY, thumbWidth, thumbHeight);
-//        thumbImage->drawWithin(g, thumb, juce::RectanglePlacement::centred, 1.0f);
-//    }
-//};
-//
-
 class SliderLookAndFeel : public juce::LookAndFeel_V4
 {
 

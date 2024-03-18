@@ -102,7 +102,6 @@ void Hyper76AudioProcessorEditor::resized()
     
     button1 .setBounds(BUTTON_1X,  BUTTON_1Y,BUTTON_W,  BUTTON_H);
     button2 .setBounds(BUTTON_1X+1*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
-    //button3 .setBounds(BUTTON_1X+2*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
     button4 .setBounds(BUTTON_1X+3*BUTTON_D, BUTTON_1Y, BUTTON_W, BUTTON_H);
 
 }

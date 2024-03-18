@@ -4,27 +4,6 @@
     This file contains the basic framework code for a JUCE plugin editor.
 
   ==============================================================================
-
-  knobs indexed from left-right, up-down
-
-  1 GAIN
-  2 bass
-  3 chrDepth
-  4 chrRate
-  5 RvbDlyMix
-  6 rvbDAMP
-  7 rvbSize
-  8 rvbWidth
-
-  slider: dlyFeedback
-
-  buttons from left-right
-
-  1 filters off
-  2 chorus off
-  3 double feedback
-  4 bypass
-
 */
 
 #pragma once
